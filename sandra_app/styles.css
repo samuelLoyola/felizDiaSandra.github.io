@@ -1,0 +1,423 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Pantallas */
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+    pointer-events: none;
+    padding: 20px;
+}
+
+.screen.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+/* Pantalla de bienvenida */
+#welcome-screen {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+}
+
+.envelope {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    margin-bottom: 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.envelope:hover {
+    transform: scale(1.05);
+}
+
+.envelope-body {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.envelope-flap {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: #f8f8f8;
+    clip-path: polygon(0 0, 50% 70%, 100% 0);
+    z-index: 2;
+    transition: transform 0.5s ease;
+}
+
+.envelope:hover .envelope-flap {
+    transform: rotateX(180deg);
+}
+
+.letter-preview {
+    text-align: center;
+    color: #333;
+}
+
+.letter-preview h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 24px;
+    color: #e91e63;
+    margin-bottom: 10px;
+}
+
+.letter-preview p {
+    font-size: 16px;
+    color: #666;
+}
+
+.open-btn {
+    background: linear-gradient(45deg, #e91e63, #f06292);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(233, 30, 99, 0.3);
+}
+
+.open-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(233, 30, 99, 0.4);
+}
+
+/* Corazones animados */
+.hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #e91e63;
+    transform: rotate(45deg);
+    animation: float 6s ease-in-out infinite;
+}
+
+.heart:before,
+.heart:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #e91e63;
+    border-radius: 50%;
+}
+
+.heart:before {
+    top: -10px;
+    left: 0;
+}
+
+.heart:after {
+    top: 0;
+    left: -10px;
+}
+
+.heart:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.heart:nth-child(2) {
+    left: 30%;
+    animation-delay: 1s;
+}
+
+.heart:nth-child(3) {
+    left: 50%;
+    animation-delay: 2s;
+}
+
+.heart:nth-child(4) {
+    left: 70%;
+    animation-delay: 3s;
+}
+
+.heart:nth-child(5) {
+    left: 90%;
+    animation-delay: 4s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 0;
+    }
+    10%, 90% {
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-100px) rotate(45deg);
+    }
+}
+
+/* Pantalla de la carta */
+#letter-screen {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+}
+
+.letter {
+    background: #fff;
+    max-width: 600px;
+    width: 90%;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.letter:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #e91e63, #f06292, #e91e63);
+}
+
+.letter-header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 20px;
+}
+
+.letter-header h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 36px;
+    color: #e91e63;
+    margin-bottom: 10px;
+}
+
+.date {
+    color: #666;
+    font-style: italic;
+}
+
+.letter-content {
+    line-height: 1.8;
+    color: #333;
+}
+
+.greeting {
+    font-family: 'Dancing Script', cursive;
+    font-size: 24px;
+    color: #e91e63;
+    margin-bottom: 20px;
+}
+
+.letter-content p {
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.signature {
+    text-align: right;
+    margin-top: 30px;
+    font-style: italic;
+    color: #e91e63;
+}
+
+.memories-btn {
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.memories-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+/* Pantalla de recuerdos */
+#memories-screen {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.memories-container {
+    text-align: center;
+    max-width: 800px;
+    width: 90%;
+}
+
+.memories-container h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 32px;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.video-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+#memories-video {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+.video-caption {
+    color: white;
+    font-style: italic;
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+.back-btn {
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(79, 172, 254, 0.3);
+}
+
+/* Control de música */
+.music-control {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+}
+
+#music-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #e91e63, #f06292);
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(233, 30, 99, 0.3);
+    transition: all 0.3s ease;
+}
+
+#music-toggle:hover {
+    transform: scale(1.1);
+}
+
+#music-toggle.playing {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(233, 30, 99, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(233, 30, 99, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(233, 30, 99, 0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .letter {
+        padding: 20px;
+    }
+    
+    .letter-header h1 {
+        font-size: 28px;
+    }
+    
+    .greeting {
+        font-size: 20px;
+    }
+    
+    .envelope {
+        width: 250px;
+        height: 160px;
+    }
+    
+    .memories-container h2 {
+        font-size: 24px;
+    }
+    
+    .music-control {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    #music-toggle {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
+

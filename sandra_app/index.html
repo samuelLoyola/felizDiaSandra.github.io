@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Sandra Sotelo ❤️</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Pantalla de bienvenida -->
+        <div id="welcome-screen" class="screen active">
+            <div class="envelope">
+                <div class="envelope-flap"></div>
+                <div class="envelope-body">
+                    <div class="letter-preview">
+                        <h2>Para mi amor</h2>
+                        <p>Sandra Sotelo</p>
+                    </div>
+                </div>
+            </div>
+            <button id="open-letter" class="open-btn">Abrir carta ❤️</button>
+            <div class="hearts">
+                <div class="heart"></div>
+                <div class="heart"></div>
+                <div class="heart"></div>
+                <div class="heart"></div>
+                <div class="heart"></div>
+            </div>
+        </div>
+
+        <!-- Pantalla de la carta -->
+        <div id="letter-screen" class="screen">
+            <div class="letter">
+                <div class="letter-header">
+                    <h1>Mi querida Sandra</h1>
+                    <div class="date">Día de la Novia 2025</div>
+                </div>
+                
+                <div class="letter-content">
+                    <p class="greeting">Mi amor hermoso,</p>
+                    
+                    <p>Hoy, en este día tan especial dedicado a las novias, quiero que sepas que eres la luz que ilumina cada uno de mis días. Desde que llegaste a mi vida, todo tiene más color, más sentido, más alegría.</p>
+                    
+                    <p>Sandra Sotelo, mi princesa, mi compañera, mi mejor amiga... Eres todo lo que siempre soñé y mucho más. Tu sonrisa es mi refugio, tu abrazo mi hogar, y tu amor mi mayor tesoro.</p>
+                    
+                    <p>Cada momento a tu lado es un regalo que atesoro en mi corazón. Cada risa compartida, cada mirada cómplice, cada "te amo" susurrado... Todo forma parte de nuestra hermosa historia de amor.</p>
+                    
+                    <p>Quiero que sepas que mi amor por ti crece cada día. Eres mi presente perfecto y mi futuro soñado. Contigo quiero construir mil aventuras, compartir mil sonrisas y vivir mil momentos mágicos como los que ya hemos vivido.</p>
+                    
+                    <p>Gracias por ser tú, por amarme como lo haces, por ser mi compañera en esta hermosa aventura que es la vida. Eres mi todo, mi siempre, mi para siempre.</p>
+                    
+                    <p class="signature">Con todo mi amor infinito,<br><strong>Samuel Loyola</strong> ❤️</p>
+                </div>
+                
+                <button id="show-memories" class="memories-btn">Ver nuestros recuerdos 💕</button>
+            </div>
+        </div>
+
+        <!-- Pantalla de recuerdos -->
+        <div id="memories-screen" class="screen">
+            <div class="memories-container">
+                <h2>Nuestros hermosos recuerdos</h2>
+                <div class="video-container">
+                    <video id="memories-video" controls>
+                        <source src="static/media/memories_video.mp4" type="video/mp4">
+                        Tu navegador no soporta el elemento de video.
+                    </video>
+                </div>
+                <p class="video-caption">Cada momento contigo es especial ❤️</p>
+                <button id="back-to-letter" class="back-btn">Volver a la carta</button>
+            </div>
+        </div>
+
+        <!-- Audio de fondo -->
+        <audio id="background-music" loop>
+            <source src="static/media/background_music.mp3" type="audio/mpeg">
+        </audio>
+
+        <!-- Control de música -->
+        <div class="music-control">
+            <button id="music-toggle">🎵</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
